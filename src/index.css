@@ -42,3 +42,11 @@ body {
     align-items: center;
   }
 }
+
+/* Scrollable without a visible scrollbar (touch, wheel and keyboard still scroll). */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
