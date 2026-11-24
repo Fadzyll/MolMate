@@ -191,6 +191,16 @@ const en = {
     },
   },
 
+  atom: {
+    protons: 'Protons',
+    neutrons: 'Neutrons',
+    electrons: 'Electrons',
+    drag: 'Drag to rotate',
+    note: 'Simplified 3D Bohr model, not to scale. Neutrons shown for the most common isotope.',
+    label: '3D model of a {name} atom: {p} protons and {n} neutrons in the nucleus, electrons arranged {shells}.',
+    scroll: 'Scroll for details',
+  },
+
   comingSoon: 'Coming soon',
   comingSoonText: 'This section is being built. Check back shortly!',
 

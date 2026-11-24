@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { ELEMENTS, electronArrangement, getElement, groupOf, periodOf } from './elements'
+import { ELEMENTS, electronArrangement, getElement, groupOf, neutronCount, periodOf, shellCounts } from './elements'
 
 describe('ELEMENTS', () => {
   it('has all 118 elements in order with unique symbols', () => {
@@ -85,5 +85,41 @@ describe('electronArrangement', () => {
   })
   it('is only given up to calcium', () => {
     expect(electronArrangement(21)).toBeNull()
+  })
+})
+
+describe('shellCounts', () => {
+  it.each([
+    ['H', [1]],
+    ['Na', [2, 8, 1]],
+    ['Ca', [2, 8, 8, 2]],
+    ['Fe', [2, 8, 14, 2]],
+    ['Cr', [2, 8, 13, 1]],
+    ['Cu', [2, 8, 18, 1]],
+    ['Br', [2, 8, 18, 7]],
+    ['Pd', [2, 8, 18, 18]],
+    ['Ag', [2, 8, 18, 18, 1]],
+    ['La', [2, 8, 18, 18, 9, 2]],
+    ['Gd', [2, 8, 18, 25, 9, 2]],
+    ['Au', [2, 8, 18, 32, 18, 1]],
+    ['Pb', [2, 8, 18, 32, 18, 4]],
+    ['Th', [2, 8, 18, 32, 18, 10, 2]],
+    ['U', [2, 8, 18, 32, 21, 9, 2]],
+    ['Lr', [2, 8, 18, 32, 32, 8, 3]],
+    ['Og', [2, 8, 18, 32, 32, 18, 8]],
+  ])('%s → %j', (symbol, shells) => {
+    expect(shellCounts(getElement(symbol)!.z)).toEqual(shells)
+  })
+
+  it('always adds up to the proton number', () => {
+    for (const e of ELEMENTS) expect(shellCounts(e.z).reduce((a, b) => a + b, 0)).toBe(e.z)
+  })
+})
+
+describe('neutronCount', () => {
+  it('uses the most common isotope', () => {
+    expect(neutronCount(getElement('H')!)).toBe(0)
+    expect(neutronCount(getElement('Na')!)).toBe(12)
+    expect(neutronCount(getElement('Cl')!)).toBe(18)
   })
 })

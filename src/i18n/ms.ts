@@ -193,6 +193,16 @@ const ms: Dictionary = {
     },
   },
 
+  atom: {
+    protons: 'Proton',
+    neutrons: 'Neutron',
+    electrons: 'Elektron',
+    drag: 'Seret untuk memutar',
+    note: 'Model Bohr 3D yang dipermudah, bukan mengikut skala. Neutron ditunjukkan bagi isotop paling biasa.',
+    label: 'Model 3D atom {name}: {p} proton dan {n} neutron dalam nukleus, susunan elektron {shells}.',
+    scroll: 'Leret untuk butiran',
+  },
+
   comingSoon: 'Akan datang',
   comingSoonText: 'Bahagian ini sedang dibina. Sila kembali sebentar lagi!',
 

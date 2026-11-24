@@ -245,3 +245,64 @@ const BY_SYMBOL = new Map(ELEMENTS.map((e) => [e.symbol, e]))
 export function getElement(symbol: string): Element | undefined {
   return BY_SYMBOL.get(symbol)
 }
+
+// Subshells in filling order (Madelung rule): [shell number n, capacity].
+const FILL_ORDER: [number, number][] = [
+  [1, 2], [2, 2], [2, 6], [3, 2], [3, 6], [4, 2], [3, 10], [4, 6], [5, 2], [4, 10], [5, 6],
+  [6, 2], [4, 14], [5, 10], [6, 6], [7, 2], [5, 14], [6, 10], [7, 6],
+]
+
+/**
+ * Known exceptions to the filling rule, as [from shell, to shell, electrons moved].
+ * e.g. copper is 2.8.18.1, not 2.8.17.2: one electron moves from shell 4 to shell 3.
+ */
+const SHELL_EXCEPTIONS: Record<number, [number, number, number][]> = {
+  24: [[4, 3, 1]], // Cr
+  29: [[4, 3, 1]], // Cu
+  41: [[5, 4, 1]], // Nb
+  42: [[5, 4, 1]], // Mo
+  44: [[5, 4, 1]], // Ru
+  45: [[5, 4, 1]], // Rh
+  46: [[5, 4, 2]], // Pd
+  47: [[5, 4, 1]], // Ag
+  57: [[4, 5, 1]], // La
+  58: [[4, 5, 1]], // Ce
+  64: [[4, 5, 1]], // Gd
+  78: [[6, 5, 1]], // Pt
+  79: [[6, 5, 1]], // Au
+  89: [[5, 6, 1]], // Ac
+  90: [[5, 6, 2]], // Th
+  91: [[5, 6, 1]], // Pa
+  92: [[5, 6, 1]], // U
+  93: [[5, 6, 1]], // Np
+  96: [[5, 6, 1]], // Cm
+  103: [[6, 7, 1]], // Lr
+}
+
+/**
+ * Electrons in each shell (K, L, M, …) for any element, used by the 3D atom
+ * model. For Z = 1–20 this matches the syllabus arrangement (2.8.8.2).
+ */
+export function shellCounts(z: number): number[] {
+  const syllabus = electronArrangement(z)
+  if (syllabus) return syllabus.split('.').map(Number)
+
+  const shells: number[] = []
+  let left = z
+  for (const [n, capacity] of FILL_ORDER) {
+    if (left <= 0) break
+    const add = Math.min(left, capacity)
+    shells[n - 1] = (shells[n - 1] ?? 0) + add
+    left -= add
+  }
+  for (const [from, to, count] of SHELL_EXCEPTIONS[z] ?? []) {
+    shells[from - 1] -= count
+    shells[to - 1] = (shells[to - 1] ?? 0) + count
+  }
+  return shells.map((n) => n ?? 0).filter((n, i, all) => n > 0 || i < all.length - 1)
+}
+
+/** Neutrons in the most common isotope, from the rounded RAM (Cl 35.5 → 18). */
+export function neutronCount(e: Element): number {
+  return Math.max(0, Math.floor(e.jar) - e.z)
+}
