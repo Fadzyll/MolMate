@@ -34,6 +34,7 @@ The app must cover:
 |---|---|---|
 | Framework | **React + Vite + TypeScript** | Fast, simple static build, deploys to Vercel with zero config |
 | Styling | **Tailwind CSS** | Quick to build responsive layouts, easy dark mode |
+| i18n | Small built-in dictionary (`src/i18n/en.ts`, `ms.ts`) | English default + Bahasa Melayu toggle, choice remembered in the browser; no library needed |
 | Routing | **React Router** | Separate pages; `vercel.json` rewrite sends every path to `index.html` |
 | Maths | Plain TS + a small number formatter | Scientific notation (e.g. `1.204 × 10²⁴`) needs no heavy library |
 | Testing | **Vitest** | Unit tests for the calculation and formula-parser logic |
@@ -50,7 +51,7 @@ No database, no API, no environment variables. All data (elements, notes) ships 
 - An interactive version of Rajah 3.9: click any box/arrow to jump to that calculator.
 - Cards linking to every section below.
 
-### 3.2 Kalkulator `/kalkulator`
+### 3.2 Kalkulator `/calculator`
 Three tabs, one per relationship. Each tab:
 - Lets the user pick **what to find** (e.g. find mol, find mass, or find molar mass).
 - Inputs with unit dropdowns (e.g. volume in cm³ or dm³, mass in g or kg).
@@ -70,8 +71,8 @@ Extras:
 - **Jisim molar helper:** type a formula such as `H2O`, `CO2`, `Ca(OH)2` or `CuSO4·5H2O` and MolMate works out the JMR/JFR from the periodic table data, showing the sum (e.g. `2(1) + 16 = 18`).
 - **Penukar Berantai (chain mode):** convert across two arrows of Rajah 3.9 through mol, e.g. jisim → mol → bilangan zarah, or isi padu gas → mol → jisim. This mirrors Contoh 12 and 13 in the textbook.
 
-### 3.3 Nota `/nota`
-Short, clear definition cards (Bahasa Melayu), each with an example:
+### 3.3 Nota `/notes`
+Short, clear definition cards (EN/BM), each with an example:
 - **JAR** (Jisim Atom Relatif): average mass of one atom of the element compared with 1/12 of the mass of one carbon-12 atom.
 - **JMR** (Jisim Molekul Relatif): for molecular substances, the sum of the JAR of the atoms in the molecule (e.g. H₂O = 18).
 - **JFR** (Jisim Formula Relatif): for ionic compounds, the sum of the JAR of the atoms in the formula (e.g. NaCl = 58.5).
@@ -80,21 +81,21 @@ Short, clear definition cards (Bahasa Melayu), each with an example:
 - **Pemalar Avogadro (N_A):** 6.02 × 10²³ mol⁻¹.
 - **Jisim molar** and **isi padu molar**, with units.
 
-### 3.4 Formula `/formula`
+### 3.4 Formula `/formulas`
 A one-page formula sheet: the Rajah 3.9 diagram plus a formula card for each relationship, the constants (N_A, 24 / 22.4 dm³ mol⁻¹) and a “remember” box (e.g. molar volume applies to gases only). Print-friendly CSS so students can print it.
 
-### 3.5 Penukar Unit `/unit`
+### 3.5 Penukar Unit `/units`
 - Mass: g ⇄ kg (and mg)
 - Volume: cm³ ⇄ dm³ ⇄ m³ (1 dm³ = 1000 cm³; also note 1 dm³ = 1 L)
 - Amount: mol ⇄ mmol
 - Each conversion shows the factor used.
 
-### 3.6 Jadual Berkala `/jadual-berkala`
+### 3.6 Jadual Berkala `/periodic-table`
 - A full, colour-coded periodic table grid (groups 1–18, periods 1–7, lanthanides and actinides).
 - Each tile: symbol, proton number, JAR.
 - Click a tile to open a detail panel: name (BM + English), proton number, **number of electrons** (= proton number for a neutral atom), JAR, group, period, and **susunan elektron** (e.g. 2.8.1) for elements 1–20, as used in SPM.
 - Search by name or symbol, and a **list view** (sortable table) as the alternative to the grid on phones.
-- Button **Guna dalam kalkulator** that sends the element’s JAR to the jisim molar helper.
+- Button **Use in calculator / Guna dalam kalkulator** that sends the element’s JAR to the jisim molar helper.
 
 ---
 
@@ -139,7 +140,7 @@ The logic in `lib/` stays separate from the UI so it can be tested on its own.
 - Mobile first: most students will open it on a phone.
 - Colours follow Rajah 3.9 so the diagram and the calculators match: **teal** for jisim, **green** for bilangan zarah, **brown/peach** for bilangan mol, **olive/yellow** for isi padu gas.
 - Light and dark mode.
-- Language: **Bahasa Melayu** throughout (matching the textbook terms); English names shown as secondary text on elements.
+- Language: **English by default**, with an **EN / BM** toggle in the navbar. Malay text uses the textbook terms (JAR, JMR, JFR, bilangan zarah…); English uses RAM, RMM, RFM. Every string lives in `src/i18n/en.ts` and `src/i18n/ms.ts`.
 
 ---
 
@@ -147,7 +148,7 @@ The logic in `lib/` stays separate from the UI so it can be tested on its own.
 
 | # | Milestone | Deliverable |
 |---|---|---|
-| 1 | Setup | Vite + React + TS + Tailwind + Router, layout (navbar/footer), deployed placeholder on Vercel |
+| 1 ✅ | Setup | Vite + React + TS + Tailwind + Router, layout (navbar/footer), deployed placeholder on Vercel |
 | 2 | Core logic | `mole.ts`, `units.ts`, `format.ts`, `elements.ts` data + unit tests |
 | 3 | Calculator | 3 tabs with step-by-step working, molar volume toggle |
 | 4 | Formula parser | `formula.ts` + jisim molar helper + chain mode |
@@ -165,7 +166,7 @@ The logic in `lib/` stays separate from the UI so it can be tested on its own.
    ```json
    { "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
    ```
-   so refreshing `/kalkulator` or `/jadual-berkala` does not return 404.
+   so refreshing `/calculator` or `/periodic-table` does not return 404.
 4. Every push to the main branch redeploys; other branches get preview URLs.
 
 ---
@@ -173,6 +174,5 @@ The logic in `lib/` stays separate from the UI so it can be tested on its own.
 ## 9. Possible later additions (out of scope for v1)
 
 - Latihan / kuiz mode with random questions and marking
-- English language toggle
 - Installable PWA for offline use
 - Save calculation history in the browser
