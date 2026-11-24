@@ -23,6 +23,7 @@ export interface Example {
   xExponent?: string
   xUnit?: string
   f?: string
+  formula?: string
 }
 
 export interface Relation {
@@ -81,8 +82,8 @@ export const RELATIONS: Record<RelationId, Relation> = {
       f: (x, n) => molarMassFrom(x, n),
     },
     examples: {
-      n: { x: '8.8', xUnit: 'g', f: '44' },
-      x: { n: '0.25', f: '58.5' },
+      n: { x: '8.8', xUnit: 'g', f: '44', formula: 'CO2' },
+      x: { n: '0.25', f: '58.5', formula: 'NaCl' },
       f: { x: '9', xUnit: 'g', n: '0.5' },
     },
   },

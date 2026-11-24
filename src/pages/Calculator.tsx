@@ -1,23 +1,27 @@
 import { useSearchParams } from 'react-router-dom'
+import ChainCalculator from '../components/calculator/ChainCalculator'
 import RelationCalculator from '../components/calculator/RelationCalculator'
 import type { RelationId } from '../components/calculator/relations'
 import { useLanguage } from '../i18n/useLanguage'
 
-const TABS: { id: RelationId; color: string }[] = [
+type TabId = RelationId | 'chain'
+
+const TABS: { id: TabId; color: string }[] = [
   { id: 'particles', color: 'bg-particles' },
   { id: 'mass', color: 'bg-mass' },
   { id: 'volume', color: 'bg-volume' },
+  { id: 'chain', color: 'bg-mole' },
 ]
 
-function isTab(v: string | null): v is RelationId {
-  return v === 'particles' || v === 'mass' || v === 'volume'
+function isTab(v: string | null): v is TabId {
+  return TABS.some((tab) => tab.id === v)
 }
 
 export default function Calculator() {
   const { t } = useLanguage()
   const [params, setParams] = useSearchParams()
   const raw = params.get('tab')
-  const tab: RelationId = isTab(raw) ? raw : 'particles'
+  const tab: TabId = isTab(raw) ? raw : 'particles'
 
   return (
     <div className="space-y-6">
@@ -29,7 +33,7 @@ export default function Calculator() {
       <div
         role="tablist"
         aria-label={t.calc.title}
-        className="grid grid-cols-3 gap-1 rounded-xl bg-slate-200/70 p-1 dark:bg-slate-800"
+        className="grid grid-cols-2 gap-1 rounded-xl sm:grid-cols-4 bg-slate-200/70 p-1 dark:bg-slate-800"
       >
         {TABS.map(({ id, color }) => {
           const active = id === tab
@@ -57,7 +61,7 @@ export default function Calculator() {
 
       <div id="calc-panel" role="tabpanel" aria-labelledby={`tab-${tab}`}>
         {/* key resets the calculator's inputs when switching tabs */}
-        <RelationCalculator key={tab} id={tab} />
+        {tab === 'chain' ? <ChainCalculator /> : <RelationCalculator key={tab} id={tab} />}
       </div>
     </div>
   )
