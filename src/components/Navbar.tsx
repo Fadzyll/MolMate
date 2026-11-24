@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useLanguage, type Language } from '../i18n/useLanguage'
 import { useTheme } from '../lib/theme'
 
@@ -22,7 +22,14 @@ const linkClass = ({ isActive }: { isActive: boolean }) =>
 export default function Navbar() {
   const { t, lang, setLang } = useLanguage()
   const { theme, toggle } = useTheme()
-  const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
+  // The menu belongs to the page it was opened on, so it closes on any navigation.
+  const [openOn, setOpenOn] = useState<string | null>(null)
+  const open = openOn === pathname
+  const setOpen = (value: boolean | ((o: boolean) => boolean)) => {
+    const next = typeof value === 'function' ? value(open) : value
+    setOpenOn(next ? pathname : null)
+  }
 
   return (
     <header className="print:hidden sticky top-0 z-30 border-b border-slate-200 bg-white/85 backdrop-blur dark:border-slate-800 dark:bg-slate-950/85">

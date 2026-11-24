@@ -4,6 +4,9 @@ const ms: Dictionary = {
   appName: 'MolMate',
   tagline: 'Rakan konsep mol anda',
 
+  skipToContent: 'Langkau ke kandungan',
+  loading: 'Memuatkan…',
+
   nav: {
     home: 'Utama',
     calculator: 'Kalkulator',
@@ -272,7 +275,7 @@ const ms: Dictionary = {
   },
 
   footer: {
-    credit: 'Dibina oleh [Nama Anda] · [Nama Sekolah]',
+    credit: 'Dibina oleh Farah Hazirah · UPSI',
     text: 'Dibina untuk Kimia KSSM Tingkatan 4 — Bab 3: Konsep Mol.',
   },
 }

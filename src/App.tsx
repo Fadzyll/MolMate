@@ -1,13 +1,16 @@
+import { lazy } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import { LanguageProvider } from './i18n/LanguageContext'
-import Calculator from './pages/Calculator'
-import Formulas from './pages/Formulas'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
-import Notes from './pages/Notes'
-import PeriodicTable from './pages/PeriodicTable'
-import Units from './pages/Units'
+
+// Pages other than Home load on demand, so the first visit downloads less.
+const Calculator = lazy(() => import('./pages/Calculator'))
+const Notes = lazy(() => import('./pages/Notes'))
+const Formulas = lazy(() => import('./pages/Formulas'))
+const Units = lazy(() => import('./pages/Units'))
+const PeriodicTable = lazy(() => import('./pages/PeriodicTable'))
 
 function AppRoutes() {
   return (

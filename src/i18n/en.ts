@@ -2,6 +2,9 @@ const en = {
   appName: 'MolMate',
   tagline: 'Your mole concept companion',
 
+  skipToContent: 'Skip to content',
+  loading: 'Loading…',
+
   nav: {
     home: 'Home',
     calculator: 'Calculator',
@@ -270,7 +273,7 @@ const en = {
   },
 
   footer: {
-    credit: 'Made by [Your Name] · [School Name]',
+    credit: 'Made by Farah Hazirah · UPSI',
     text: 'Built for KSSM Form 4 Chemistry — Chapter 3: The Mole Concept.',
   },
 }

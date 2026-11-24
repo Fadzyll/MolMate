@@ -80,13 +80,12 @@ export default function ElementDialog({ element, onClose }: { element: Element |
               <Fact label={d.molarMass} value={`${e.jar} g mol⁻¹`} />
               <Fact label={d.group} value={e.group ?? d.fBlock} />
               <Fact label={d.period} value={e.period} />
-              <div className="col-span-2">
-                <Fact
-                  label={d.arrangement}
-                  value={e.electronArrangement ?? '—'}
-                  note={e.electronArrangement ? undefined : d.arrangementNote}
-                />
-              </div>
+              <Fact
+                className="col-span-2"
+                label={d.arrangement}
+                value={e.electronArrangement ?? '—'}
+                note={e.electronArrangement ? undefined : d.arrangementNote}
+              />
             </dl>
 
             <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">{d.electronsNote}</p>
@@ -158,9 +157,9 @@ function Legend({ color, text }: { color: string; text: string }) {
   )
 }
 
-function Fact({ label, value, note }: { label: string; value: ReactNode; note?: string }) {
+function Fact({ label, value, note, className = '' }: { label: string; value: ReactNode; note?: string; className?: string }) {
   return (
-    <div className="rounded-lg bg-slate-50 px-3 py-2 dark:bg-slate-800/60">
+    <div className={`rounded-lg bg-slate-50 px-3 py-2 dark:bg-slate-800/60 ${className}`}>
       <dt className="text-xs text-slate-500 dark:text-slate-400">{label}</dt>
       <dd className="mt-0.5 text-lg font-semibold tabular-nums">{value}</dd>
       {note && <dd className="text-xs text-slate-500 dark:text-slate-400">{note}</dd>}

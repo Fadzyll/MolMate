@@ -131,7 +131,7 @@ export default function Formulas() {
                   <div key={i} className="flex gap-2">
                     <dt className="w-8 shrink-0">{sym}</dt>
                     <dd className="text-slate-600 dark:text-slate-300">
-                      {name} <span className="text-slate-400">({unit})</span>
+                      {name} <span className="text-slate-500 dark:text-slate-400">({unit})</span>
                     </dd>
                   </div>
                 ))}
@@ -188,7 +188,7 @@ export default function Formulas() {
               {unitRows.map(([a, b], i) => (
                 <tr key={i} className="border-t border-slate-100 first:border-0 dark:border-slate-800">
                   <td className="py-1.5">{a}</td>
-                  <td className="py-1.5 text-center text-slate-400">=</td>
+                  <td className="py-1.5 text-center text-slate-500 dark:text-slate-400">=</td>
                   <td className="py-1.5 text-right">{b}</td>
                 </tr>
               ))}

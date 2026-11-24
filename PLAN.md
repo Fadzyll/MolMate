@@ -154,7 +154,7 @@ The logic in `lib/` stays separate from the UI so it can be tested on its own.
 | 4 ✅ | Formula parser | `formula.ts` + jisim molar helper + chain mode |
 | 5 ✅ | Periodic table | Grid, detail panel, search, list view |
 | 6 ✅ | Content pages | Landing with interactive Rajah 3.9, Nota, Formula, Penukar Unit |
-| 7 | Polish | Responsive check, dark mode, accessibility, SEO meta/OG image, final Vercel deploy |
+| 7 ✅ | Polish | Responsive check, dark mode, accessibility, SEO meta/OG image, final Vercel deploy |
 
 ---
 

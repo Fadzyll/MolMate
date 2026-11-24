@@ -161,7 +161,7 @@ export default function Units() {
               {reference.map(([a, b, f]) => (
                 <tr key={a + b} className="border-t border-slate-100 first:border-0 dark:border-slate-800">
                   <td className="py-1.5">1 {UNIT_LABELS[a]}</td>
-                  <td className="py-1.5 text-center text-slate-400">=</td>
+                  <td className="py-1.5 text-center text-slate-500 dark:text-slate-400">=</td>
                   <td className="py-1.5 text-right">
                     {f.toLocaleString('en')} {UNIT_LABELS[b]}
                   </td>
