@@ -176,9 +176,9 @@ export default function RelationCalculator({ id }: { id: RelationId }) {
   }))
 
   return (
-    <div className="grid gap-6 lg:grid-cols-2">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
       {/* ----- input card ----- */}
-      <section className="space-y-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <section className="min-w-0 space-y-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
         <div>
           <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
             {t.calc.find}
@@ -238,7 +238,7 @@ export default function RelationCalculator({ id }: { id: RelationId }) {
       {/* ----- answer + working ----- */}
       <section
         aria-live="polite"
-        className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"
+        className="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900"
       >
         {result === null ? (
           <p className="grid h-full min-h-40 place-items-center text-center text-slate-500 dark:text-slate-400">

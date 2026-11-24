@@ -2,8 +2,9 @@ import { useId, type ReactNode } from 'react'
 import { UNIT_LABELS } from '../../lib/units'
 import type { FieldValue } from './field'
 
+// Width is set per input (not here) so the main box and the exponent box don't fight over it.
 const inputClass =
-  'w-full min-w-0 rounded-lg border bg-white px-3 py-2.5 text-base tabular-nums shadow-sm outline-none transition focus:ring-2 dark:bg-slate-950'
+  'min-w-0 rounded-lg border bg-white py-2.5 text-base tabular-nums shadow-sm outline-none transition focus:ring-2 dark:bg-slate-950'
 
 export default function NumberField({
   label,
@@ -56,11 +57,13 @@ export default function NumberField({
           onChange={(e) => onChange({ ...value, text: e.target.value })}
           aria-invalid={!!error}
           aria-describedby={error ? errorId : undefined}
-          className={`${inputClass} ${border}`}
+          className={`${inputClass} ${border} flex-1 px-3`}
         />
         {scientific && (
           <>
-            <span className="shrink-0 text-slate-600 dark:text-slate-300">× 10</span>
+            <span className="shrink-0 text-slate-600 dark:text-slate-300">
+              × 10<sup>n</sup>
+            </span>
             <input
               type="text"
               inputMode="numeric"
@@ -70,7 +73,7 @@ export default function NumberField({
               value={value.exponent}
               onChange={(e) => onChange({ ...value, exponent: e.target.value })}
               aria-invalid={!!error}
-              className={`${inputClass} ${border} w-16 shrink-0 -translate-y-2 py-1.5 text-sm`}
+              className={`${inputClass} ${border} w-20 shrink-0 px-2 text-center`}
             />
           </>
         )}
