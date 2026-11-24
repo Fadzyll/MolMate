@@ -6,6 +6,7 @@ import { useLanguage } from './i18n/useLanguage'
 import Calculator from './pages/Calculator'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
+import PeriodicTable from './pages/PeriodicTable'
 
 function AppRoutes() {
   const { t } = useLanguage()
@@ -17,7 +18,7 @@ function AppRoutes() {
         <Route path="notes" element={<ComingSoon title={t.nav.notes} />} />
         <Route path="formulas" element={<ComingSoon title={t.nav.formulas} />} />
         <Route path="units" element={<ComingSoon title={t.nav.units} />} />
-        <Route path="periodic-table" element={<ComingSoon title={t.nav.periodicTable} />} />
+        <Route path="periodic-table" element={<PeriodicTable />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

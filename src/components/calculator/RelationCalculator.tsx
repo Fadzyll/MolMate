@@ -29,7 +29,7 @@ type MolarMassMode = 'enter' | 'formula'
 
 const dimensionOf: Partial<Record<RelationId, Dimension>> = { mass: 'mass', volume: 'volume' }
 
-export default function RelationCalculator({ id }: { id: RelationId }) {
+export default function RelationCalculator({ id, initialFormula = '' }: { id: RelationId; initialFormula?: string }) {
   const { t } = useLanguage()
   const rel = RELATIONS[id]
   const dimension = dimensionOf[id]
@@ -42,8 +42,8 @@ export default function RelationCalculator({ id }: { id: RelationId }) {
   const [xUnit, setXUnit] = useState<string>(baseUnit)
   const [particleType, setParticleType] = useState<ParticleType>('particles')
   const [condition, setCondition] = useState<Condition>('room')
-  const [mMode, setMMode] = useState<MolarMassMode>('enter')
-  const [formula, setFormula] = useState('')
+  const [mMode, setMMode] = useState<MolarMassMode>(initialFormula ? 'formula' : 'enter')
+  const [formula, setFormula] = useState(initialFormula)
   const [copied, setCopied] = useState(false)
 
   const label = (key: keyof typeof t.calc.vars) => t.calc.vars[key]

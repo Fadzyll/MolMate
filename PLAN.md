@@ -152,7 +152,7 @@ The logic in `lib/` stays separate from the UI so it can be tested on its own.
 | 2 ✅ | Core logic | `mole.ts`, `units.ts`, `format.ts`, `elements.ts` data + unit tests |
 | 3 ✅ | Calculator | 3 tabs with step-by-step working, molar volume toggle |
 | 4 ✅ | Formula parser | `formula.ts` + jisim molar helper + chain mode |
-| 5 | Periodic table | Grid, detail panel, search, list view |
+| 5 ✅ | Periodic table | Grid, detail panel, search, list view |
 | 6 | Content pages | Landing with interactive Rajah 3.9, Nota, Formula, Penukar Unit |
 | 7 | Polish | Responsive check, dark mode, accessibility, SEO meta/OG image, final Vercel deploy |
 

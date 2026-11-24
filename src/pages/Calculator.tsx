@@ -22,6 +22,8 @@ export default function Calculator() {
   const [params, setParams] = useSearchParams()
   const raw = params.get('tab')
   const tab: TabId = isTab(raw) ? raw : 'particles'
+  // Set by "Use in calculator" on the periodic table, e.g. ?tab=mass&formula=Na
+  const formula = params.get('formula') ?? ''
 
   return (
     <div className="space-y-6">
@@ -61,7 +63,7 @@ export default function Calculator() {
 
       <div id="calc-panel" role="tabpanel" aria-labelledby={`tab-${tab}`}>
         {/* key resets the calculator's inputs when switching tabs */}
-        {tab === 'chain' ? <ChainCalculator /> : <RelationCalculator key={tab} id={tab} />}
+        {tab === 'chain' ? <ChainCalculator /> : <RelationCalculator key={`${tab}-${formula}`} id={tab} initialFormula={formula} />}
       </div>
     </div>
   )
