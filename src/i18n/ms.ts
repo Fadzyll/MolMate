@@ -87,7 +87,7 @@ const ms: Dictionary = {
     condition: 'Keadaan',
     room: 'Keadaan bilik',
     stp: 'STP',
-    constant: 'Pemalar tetap',
+    constant: 'nilai tetap',
     working: 'Jalan kerja',
     convertUnits: 'Tukar unit',
     formula: 'Formula',
@@ -111,9 +111,9 @@ const ms: Dictionary = {
       placeholder: 'cth. H2O, Ca(OH)2, CuSO4·5H2O',
       hint: 'Mulakan setiap unsur dengan huruf besar: Co ialah kobalt, CO ialah karbon monoksida.',
       kind: {
-        atom: 'Jisim atom relatif (JAR)',
-        molecular: 'Jisim molekul relatif (JMR)',
-        ionic: 'Jisim formula relatif (JFR)',
+        atom: 'Jisim atom relatif (JAR) bagi',
+        molecular: 'Jisim molekul relatif (JMR) bagi',
+        ionic: 'Jisim formula relatif (JFR) bagi',
       },
       element: 'Unsur',
       count: 'Bil. atom',
@@ -155,16 +155,16 @@ const ms: Dictionary = {
     legend: 'Tapis mengikut jenis',
     all: 'Semua',
     scrollHint: 'Leret ke tepi untuk melihat seluruh jadual.',
-    jarNote: 'Nilai JAR ialah nilai bundar yang digunakan dalam SPM. Nilai dalam kurungan adalah bagi unsur tanpa isotop stabil.',
+    jarNote: 'Nilai JAR ialah nilai yang dibundarkan seperti dalam SPM. Nilai dalam kurungan adalah bagi unsur tanpa isotop stabil.',
     categories: {
-      alkali: 'Logam alkali',
-      alkalineEarth: 'Logam alkali bumi',
+      alkali: 'Logam alkali (Kumpulan 1)',
+      alkalineEarth: 'Logam alkali bumi (Kumpulan 2)',
       transition: 'Unsur peralihan',
-      postTransition: 'Logam pasca-peralihan',
+      postTransition: 'Logam lain',
       metalloid: 'Metaloid',
       nonmetal: 'Bukan logam',
-      halogen: 'Halogen',
-      nobleGas: 'Gas adi',
+      halogen: 'Halogen (Kumpulan 17)',
+      nobleGas: 'Gas adi (Kumpulan 18)',
       lanthanide: 'Lantanida',
       actinide: 'Aktinida',
     },
@@ -276,7 +276,7 @@ const ms: Dictionary = {
 
   footer: {
     credit: 'Dibina oleh Farah Hazirah · UPSI',
-    text: 'Dibina untuk Kimia KSSM Tingkatan 4 — Bab 3: Konsep Mol.',
+    text: 'Dibina untuk Kimia KSSM Tingkatan 4 — Bab 3: Konsep Mol, Formula dan Persamaan Kimia.',
   },
 }
 

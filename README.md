@@ -1,6 +1,6 @@
 # MolMate
 
-Your mole concept companion: a study tool for KSSM Form 4 Chemistry, Chapter 3 (The Mole Concept / Konsep Mol). Available in English (default) and Bahasa Melayu.
+Your mole concept companion: a study tool for KSSM Form 4 Chemistry, Chapter 3 (The Mole Concept, Chemical Formula and Equation / Konsep Mol, Formula dan Persamaan Kimia). Available in English (default) and Bahasa Melayu.
 
 Made by Farah Hazirah · UPSI. Live at <https://mol-mate.vercel.app>.
 

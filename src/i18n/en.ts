@@ -85,7 +85,7 @@ const en = {
     condition: 'Conditions',
     room: 'Room conditions',
     stp: 'STP',
-    constant: 'Fixed constant',
+    constant: 'fixed value',
     working: 'Working',
     convertUnits: 'Convert units',
     formula: 'Formula',
@@ -155,14 +155,14 @@ const en = {
     scrollHint: 'Scroll sideways to see the whole table.',
     jarNote: 'RAM values are the rounded values used in SPM. Values in brackets are for elements with no stable isotope.',
     categories: {
-      alkali: 'Alkali metal',
-      alkalineEarth: 'Alkaline earth metal',
+      alkali: 'Alkali metal (Group 1)',
+      alkalineEarth: 'Alkaline earth metal (Group 2)',
       transition: 'Transition element',
-      postTransition: 'Post-transition metal',
+      postTransition: 'Other metal',
       metalloid: 'Metalloid',
       nonmetal: 'Non-metal',
-      halogen: 'Halogen',
-      nobleGas: 'Noble gas',
+      halogen: 'Halogen (Group 17)',
+      nobleGas: 'Noble gas (Group 18)',
       lanthanide: 'Lanthanide',
       actinide: 'Actinide',
     },
@@ -274,7 +274,7 @@ const en = {
 
   footer: {
     credit: 'Made by Farah Hazirah · UPSI',
-    text: 'Built for KSSM Form 4 Chemistry — Chapter 3: The Mole Concept.',
+    text: 'Built for KSSM Form 4 Chemistry — Chapter 3: The Mole Concept, Chemical Formula and Equation.',
   },
 }
 

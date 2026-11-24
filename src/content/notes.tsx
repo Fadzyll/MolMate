@@ -254,10 +254,10 @@ export function getNotes(lang: Language): Note[] {
         ),
         L(
           <>
-            Brackets multiply everything inside: <Formula text="Ca(OH)2" /> has 2 O and 2 H.
+            The number after a bracket multiplies everything inside it: <Formula text="Ca(OH)2" /> has 2 O and 2 H.
           </>,
           <>
-            Kurungan mendarab semua di dalamnya: <Formula text="Ca(OH)2" /> ada 2 O dan 2 H.
+            Nombor selepas kurungan mendarab semua atom di dalamnya: <Formula text="Ca(OH)2" /> ada 2 O dan 2 H.
           </>,
         ),
       ],
@@ -278,7 +278,7 @@ export function getNotes(lang: Language): Note[] {
           <strong>
             g mol<sup>−1</sup>
           </strong>
-          . It has the same number as the RAM, RMM or RFM.
+          . Its value is the same as the RAM, RMM or RFM.
         </>,
         <>
           <strong>Jisim molar</strong> ialah jisim satu mol bahan, dalam unit{' '}
