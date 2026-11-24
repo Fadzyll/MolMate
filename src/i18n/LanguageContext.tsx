@@ -1,19 +1,10 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
+import { LanguageContext, type Language } from './context'
 import en, { type Dictionary } from './en'
 import ms from './ms'
 
-export type Language = 'en' | 'ms'
-
 const dictionaries: Record<Language, Dictionary> = { en, ms }
 const STORAGE_KEY = 'molmate-lang'
-
-interface LanguageContextValue {
-  lang: Language
-  setLang: (lang: Language) => void
-  t: Dictionary
-}
-
-const LanguageContext = createContext<LanguageContextValue | null>(null)
 
 function readSavedLanguage(): Language {
   try {
@@ -42,10 +33,4 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       {children}
     </LanguageContext.Provider>
   )
-}
-
-export function useLanguage() {
-  const ctx = useContext(LanguageContext)
-  if (!ctx) throw new Error('useLanguage must be used inside LanguageProvider')
-  return ctx
 }

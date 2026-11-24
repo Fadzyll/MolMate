@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { useLanguage, type Language } from '../i18n/LanguageContext'
+import { useLanguage, type Language } from '../i18n/useLanguage'
 import { useTheme } from '../lib/theme'
 
 const links = [

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { useLanguage } from '../i18n/LanguageContext'
+import { useLanguage } from '../i18n/useLanguage'
 import Navbar from './Navbar'
 
 export default function Layout() {

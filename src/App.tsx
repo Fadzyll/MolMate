@@ -1,7 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ComingSoon from './components/ComingSoon'
 import Layout from './components/Layout'
-import { LanguageProvider, useLanguage } from './i18n/LanguageContext'
+import { LanguageProvider } from './i18n/LanguageContext'
+import { useLanguage } from './i18n/useLanguage'
+import Calculator from './pages/Calculator'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 
@@ -11,7 +13,7 @@ function AppRoutes() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="calculator" element={<ComingSoon title={t.nav.calculator} />} />
+        <Route path="calculator" element={<Calculator />} />
         <Route path="notes" element={<ComingSoon title={t.nav.notes} />} />
         <Route path="formulas" element={<ComingSoon title={t.nav.formulas} />} />
         <Route path="units" element={<ComingSoon title={t.nav.units} />} />

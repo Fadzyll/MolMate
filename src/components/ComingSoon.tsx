@@ -1,4 +1,4 @@
-import { useLanguage } from '../i18n/LanguageContext'
+import { useLanguage } from '../i18n/useLanguage'
 
 export default function ComingSoon({ title }: { title: string }) {
   const { t } = useLanguage()

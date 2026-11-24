@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
-import { useLanguage } from '../i18n/LanguageContext'
+import { useLanguage } from '../i18n/useLanguage'
 
 type Area = 'mass' | 'mole' | 'particles' | 'volume'
 

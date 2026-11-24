@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import RajahDiagram from '../components/RajahDiagram'
-import { useLanguage } from '../i18n/LanguageContext'
+import { useLanguage } from '../i18n/useLanguage'
 
 const features = [
   { to: '/calculator', key: 'calculator', accent: 'border-t-mole' },
