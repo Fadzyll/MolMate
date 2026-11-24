@@ -50,3 +50,12 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+@media print {
+  body {
+    background: white;
+  }
+  .sheet-card {
+    box-shadow: none;
+  }
+}

@@ -25,7 +25,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/85 backdrop-blur dark:border-slate-800 dark:bg-slate-950/85">
+    <header className="print:hidden sticky top-0 z-30 border-b border-slate-200 bg-white/85 backdrop-blur dark:border-slate-800 dark:bg-slate-950/85">
       <nav className="mx-auto flex h-16 max-w-6xl items-center gap-2 px-4">
         <Link to="/" className="mr-auto flex items-center gap-2" onClick={() => setOpen(false)}>
           <img src="/favicon.svg" alt="" className="h-8 w-8" />
