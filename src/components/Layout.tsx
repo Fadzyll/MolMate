@@ -21,6 +21,7 @@ export default function Layout() {
         <p className="px-4">
           {t.appName} · {t.footer.text}
         </p>
+        <p className="mt-1 px-4">{t.footer.credit}</p>
       </footer>
     </div>
   )

@@ -62,6 +62,7 @@ const en = {
   },
 
   footer: {
+    credit: 'Made by [Your Name] · [School Name]',
     text: 'Built for KSSM Form 4 Chemistry — Chapter 3: The Mole Concept.',
   },
 }

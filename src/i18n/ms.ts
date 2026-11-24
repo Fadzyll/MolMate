@@ -64,6 +64,7 @@ const ms: Dictionary = {
   },
 
   footer: {
+    credit: 'Dibina oleh [Nama Anda] · [Nama Sekolah]',
     text: 'Dibina untuk Kimia KSSM Tingkatan 4 — Bab 3: Konsep Mol.',
   },
 }
